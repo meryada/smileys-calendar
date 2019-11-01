@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const StatusList = props => {
   const { allStatus } = props;
@@ -9,10 +10,12 @@ const StatusList = props => {
         <ul>
           {allStatus.map((status, index) => {
             return (
+              <Link to='/detail'>
               <li key={index}>
                 <p>{status.currentDay}</p>
                 <p>{status.currentStatus === 'triste'?<i className="fas fa-sad-tear"></i>:<i className="fas fa-grin-hearts"></i>}</p>
               </li>
+              </Link>
             )
           })}
         </ul>
