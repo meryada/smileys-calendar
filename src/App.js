@@ -39,7 +39,8 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
+    // event.preventDefault(); 
+    // si añado el preventDefault no funciona el link de volver 
     console.log(this.state.allStatus)
     const { currentStatus } = this.state
     this.setState(prevState => {
