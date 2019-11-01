@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Home } from './components/Home';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allStatus: [],
+      currentStatus: {
+        currentDay: '',
+        currentStatus: ''
+      }
+    }
+    this.getDate = this.getDate.bind(this)
+    this.getStatus=this.getStatus.bind(this)
+  }
+
+  getDate(event) {
+    const newDate = event.currentTarget.value;
+    console.log(newDate)
+    this.setState(prevState => {
+      return {
+        currentStatus: {...prevState.currentStatus, currentDay: newDate}
+      }
+    })
+  }
+
+  getStatus(event) {
+    const newStatus = event.currentTarget.value;
+    console.log(newStatus)
+    this.setState(prevState => {
+      return {
+        currentStatus:{...prevState.currentStatus, currentStatus: newStatus} 
+      }
+    })
+  }
+
+  render() {
+    console.log(this.state)
+    return (
+      <div className="App">
+        <Home
+          getDate={this.getDate}
+          getStatus={this.getStatus}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
