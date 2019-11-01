@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { StatusForm } from './components/StatusForm';
-import { StatusDetail} from './components/StatusDetail';
+import { StatusDetail } from './components/StatusDetail';
 import './App.css';
 
 class App extends React.Component {
@@ -53,18 +53,28 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Home
-          allStatus={this.state.allStatus}
-          getDate={this.getDate}
-          getStatus={this.getStatus}
-          handleSubmit={this.handleSubmit}
-        />
-        <StatusForm
-          getDate={this.getDate}
-          getStatus={this.getStatus}
-          handleSubmit={this.handleSubmit}
-        />
-        <StatusDetail />
+        <Switch>
+          <Route exact path='/' render={() =>{
+            return (
+              <Home
+            allStatus={this.state.allStatus}
+            getDate={this.getDate}
+            getStatus={this.getStatus}
+            handleSubmit={this.handleSubmit}
+          />
+            )
+          }} />
+          <Route path='/form' render={()=> {
+            return(
+              <StatusForm
+              getDate={this.getDate}
+              getStatus={this.getStatus}
+              handleSubmit={this.handleSubmit}
+            />
+            )
+          }}/>
+          <Route path='/detail' component={StatusDetail}/>
+        </Switch>
       </div>
     );
   }
