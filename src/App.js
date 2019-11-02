@@ -23,16 +23,16 @@ class App extends React.Component {
   componentDidMount() {
     this.handleGetLocalStorage();
   }
-  handleSetLocalStorage = () => {
+  setLocal = () => {
     localStorage.setItem('allStatus', JSON.stringify(this.state.allStatus))
   }
   handleGetLocalStorage = () => {
     const savedStatus = JSON.parse(localStorage.getItem('allStatus'));
     this.setState(() => {
-      return ({
-        allStatus: savedStatus
-      })
-    }
+        return ({
+          allStatus: savedStatus
+        })
+      }
     )
   }
 
@@ -62,8 +62,7 @@ class App extends React.Component {
     this.setState(prevState => {
       return {
         allStatus: [...prevState.allStatus, currentStatus]
-      }
-    }, () => { this.handleSetLocalStorage(); })
+      }}, ()=>{this.setLocal();})
   }
 
   render() {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const StatusList = props => {
   const { allStatus } = props;
-  if (allStatus[0]) {
+  if (allStatus) {
     return (
       <div>
         <h2>Calendario</h2>
@@ -21,7 +21,6 @@ const StatusList = props => {
         </ul>
       </div>
     )
-
   } else {
     return (
       <div>
