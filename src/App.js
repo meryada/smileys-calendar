@@ -13,7 +13,7 @@ class App extends React.Component {
       currentStatus: {
         currentDay: '',
         currentStatus: '',
-        currentMessage:''
+        currentMessage: ''
       }
     }
     this.getDate = this.getDate.bind(this)
@@ -21,8 +21,8 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.setLocal = this.setLocal.bind(this)
     this.getMessage = this.getMessage.bind(this)
-    this.handleGetLocalStorage=this.handleGetLocalStorage.bind(this)
-  
+    this.handleGetLocalStorage = this.handleGetLocalStorage.bind(this)
+
   }
 
   componentDidMount() {
@@ -34,12 +34,16 @@ class App extends React.Component {
   handleGetLocalStorage = () => {
     const savedStatus = JSON.parse(localStorage.getItem('allStatus'));
     this.setState(() => {
+      if(savedStatus === null){
+        return (console.log ('no tengo info guardada'))
+    } else {
       return ({
         allStatus: savedStatus
       })
     }
-    )
-  }
+  })
+}
+  
 
   getDate(event) {
     const newDate = event.currentTarget.value;
@@ -65,7 +69,7 @@ class App extends React.Component {
     console.log(newMessage)
     this.setState(prevState => {
       return {
-        currentStatus: {...prevState.currentStatus, currentMessage: newMessage},
+        currentStatus: { ...prevState.currentStatus, currentMessage: newMessage },
       }
     })
   }
