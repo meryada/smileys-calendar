@@ -20,6 +20,22 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    this.handleGetLocalStorage();
+  }
+  handleSetLocalStorage = () => {
+    localStorage.setItem('allStatus', JSON.stringify(this.state.allStatus))
+  }
+  handleGetLocalStorage = () => {
+    const savedStatus = JSON.parse(localStorage.getItem('allStatus'));
+    this.setState(() => {
+        return ({
+          allStatus: savedStatus
+        })
+      }
+    )
+  }
+
   getDate(event) {
     const newDate = event.currentTarget.value;
     this.setState(prevState => {
@@ -39,42 +55,40 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault(); 
+    //event.preventDefault(); 
     // si añado el preventDefault no funciona el link de volver 
     console.log(this.state.allStatus)
     const { currentStatus } = this.state
     this.setState(prevState => {
       return {
         allStatus: [...prevState.allStatus, currentStatus]
-      }
-
-    })
+      }}, ()=>{this.handleSetLocalStorage();})
   }
 
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={() =>{
+          <Route exact path='/' render={() => {
             return (
               <Home
-            allStatus={this.state.allStatus}
-            getDate={this.getDate}
-            getStatus={this.getStatus}
-            handleSubmit={this.handleSubmit}
-          />
+                allStatus={this.state.allStatus}
+                getDate={this.getDate}
+                getStatus={this.getStatus}
+                handleSubmit={this.handleSubmit}
+              />
             )
           }} />
-          <Route path='/form' render={()=> {
-            return(
+          <Route path='/form' render={() => {
+            return (
               <StatusForm
-              getDate={this.getDate}
-              getStatus={this.getStatus}
-              handleSubmit={this.handleSubmit}
-            />
+                getDate={this.getDate}
+                getStatus={this.getStatus}
+                handleSubmit={this.handleSubmit}
+              />
             )
-          }}/>
-          <Route path='/detail' component={StatusDetail}/>
+          }} />
+          <Route path='/detail' component={StatusDetail} />
         </Switch>
       </div>
     );
