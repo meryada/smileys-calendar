@@ -18,6 +18,8 @@ class App extends React.Component {
     this.getDate = this.getDate.bind(this)
     this.getStatus = this.getStatus.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.setLocal = this.setLocal.bind(this)
+    this.handleGetLocalStorage=this.handleGetLocalStorage.bind(this)
   }
 
   componentDidMount() {
@@ -47,22 +49,29 @@ class App extends React.Component {
 
   getStatus(event) {
     const newStatus = event.currentTarget.value;
+    const newId = this.state.allStatus.length+1;
     this.setState(prevState => {
       return {
-        currentStatus: { ...prevState.currentStatus, currentStatus: newStatus }
+        currentStatus: { ...prevState.currentStatus, currentStatus: newStatus, newId },
       }
     })
+  }
+
+  getId() {
+    console.log(this.state.allStatus.length)
   }
 
   handleSubmit(event) {
     //event.preventDefault(); 
     // si añado el preventDefault no funciona el link de volver 
-    console.log(this.state.allStatus)
+    // console.log(this.state.allStatus)
     const { currentStatus } = this.state
     this.setState(prevState => {
       return {
         allStatus: [...prevState.allStatus, currentStatus]
-      }}, ()=>{this.setLocal();})
+      }},
+      ()=>{this.setLocal();},    
+      )
   }
 
   render() {
@@ -88,7 +97,14 @@ class App extends React.Component {
               />
             )
           }} />
-          <Route path='/detail' component={StatusDetail} />
+          <Route path='/detail/:id' render={(routerProps)=>{
+            return (
+              <StatusDetail 
+              allStatus={this.state.allStatus}
+              routerProps={routerProps}
+              />
+            )
+          }} />
         </Switch>
       </div>
     );

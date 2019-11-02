@@ -10,8 +10,9 @@ const StatusList = props => {
         <ul>
           {allStatus.map((status, index) => {
             return (
-              <Link to='/detail'>
-              <li key={index}>
+              <Link to={`/detail/${index+1}`}>
+              <li key={index+1}>
+                <p>ID/#{index}</p>
                 <p>{status.currentDay}</p>
                 <p>{status.currentStatus === 'triste'?<i className="fas fa-sad-tear"></i>:<i className="fas fa-grin-hearts"></i>}</p>
               </li>
