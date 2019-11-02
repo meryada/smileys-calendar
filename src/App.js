@@ -12,18 +12,21 @@ class App extends React.Component {
       allStatus: [],
       currentStatus: {
         currentDay: '',
-        currentStatus: ''
+        currentStatus: '',
+        currentMessage:''
       }
     }
     this.getDate = this.getDate.bind(this)
     this.getStatus = this.getStatus.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.setLocal = this.setLocal.bind(this)
+    this.getMessage = this.getMessage.bind(this)
     this.handleGetLocalStorage=this.handleGetLocalStorage.bind(this)
+  
   }
 
   componentDidMount() {
-    this.handleGetLocalStorage();
+    this.handleGetLocalStorage()
   }
   setLocal = () => {
     localStorage.setItem('allStatus', JSON.stringify(this.state.allStatus))
@@ -31,10 +34,10 @@ class App extends React.Component {
   handleGetLocalStorage = () => {
     const savedStatus = JSON.parse(localStorage.getItem('allStatus'));
     this.setState(() => {
-        return ({
-          allStatus: savedStatus
-        })
-      }
+      return ({
+        allStatus: savedStatus
+      })
+    }
     )
   }
 
@@ -49,7 +52,7 @@ class App extends React.Component {
 
   getStatus(event) {
     const newStatus = event.currentTarget.value;
-    const newId = this.state.allStatus.length+1;
+    const newId = this.state.allStatus.length + 1;
     this.setState(prevState => {
       return {
         currentStatus: { ...prevState.currentStatus, currentStatus: newStatus, newId },
@@ -57,8 +60,14 @@ class App extends React.Component {
     })
   }
 
-  getId() {
-    console.log(this.state.allStatus.length)
+  getMessage(event) {
+    const newMessage = event.currentTarget.value;
+    console.log(newMessage)
+    this.setState(prevState => {
+      return {
+        currentStatus: {...prevState.currentStatus, currentMessage: newMessage},
+      }
+    })
   }
 
   handleSubmit(event) {
@@ -69,9 +78,10 @@ class App extends React.Component {
     this.setState(prevState => {
       return {
         allStatus: [...prevState.allStatus, currentStatus]
-      }},
-      ()=>{this.setLocal();},    
-      )
+      }
+    },
+      () => { this.setLocal(); },
+    )
   }
 
   render() {
@@ -93,15 +103,16 @@ class App extends React.Component {
               <StatusForm
                 getDate={this.getDate}
                 getStatus={this.getStatus}
+                getMessage={this.getMessage}
                 handleSubmit={this.handleSubmit}
               />
             )
           }} />
-          <Route path='/detail/:id' render={(routerProps)=>{
+          <Route path='/detail/:id' render={(routerProps) => {
             return (
-              <StatusDetail 
-              allStatus={this.state.allStatus}
-              routerProps={routerProps}
+              <StatusDetail
+                allStatus={this.state.allStatus}
+                routerProps={routerProps}
               />
             )
           }} />

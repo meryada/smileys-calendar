@@ -8,9 +8,10 @@ const StatusDetail = props => {
   if(state[0]) {
     return (
       <div>
+        <p>ID/#{id}</p>
       <h2>{state[0].currentDay}</h2>
       <p>{state[0].currentStatus === 'triste'?<i className="fas fa-sad-tear"></i>:<i className="fas fa-grin-hearts"></i>}</p>
-      <p>ID/#{id}</p>
+      <p>{state[0].currentMessage}</p>
       <Link to="/">
       <button type='button' value='Cancelar'>Volver al listado</button>
     </Link>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import Button from './Button';
 
 const StatusForm = props => {
-  const { getDate, getStatus, handleSubmit } = props
+  const { getDate, getStatus, handleSubmit, getMessage } = props
   return (
     <div>
       <h2>Formulario nuevo Estado</h2>
@@ -14,6 +14,8 @@ const StatusForm = props => {
           <label>Estado</label>
           <input type='radio' id='feliz' onChange={getStatus} name='status' value='feliz' /> : )
           <input type='radio' id='triste' onChange={getStatus} name='status' value='triste' />  : (
+          <label>Mensaje</label>
+          <input type='text' id='message' onKeyUp={getMessage} />
         {/* <Button
         handleSubmit={handleSubmit}
         /> */}
