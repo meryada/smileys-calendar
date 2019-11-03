@@ -1,0 +1,19 @@
+*{
+    list-style: none;
+} 
+
+.statuslist__list {
+    display: flex;
+    
+    .statuslist__list-item {
+        padding: 20px;
+    }
+
+    .fa-sad-tear {
+        color: red;
+    }
+
+    .fa-grin-hearts {
+        color: green;
+    }
+}

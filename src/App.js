@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { StatusForm } from './components/StatusForm';
 import { StatusDetail } from './components/StatusDetail';
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -92,7 +92,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Switch>
           <Route exact path='/' render={() => {
             return (
