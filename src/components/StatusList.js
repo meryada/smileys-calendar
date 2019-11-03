@@ -29,7 +29,10 @@ const StatusList = props => {
     return (
       <div>
         <h2>Calendario</h2>
+        <div>
+        <i class="fas fa-exclamation-circle fa-3x"></i>
         <p>no hay estados, añade uno!</p>
+        </div>
       </div>
     )
   }
