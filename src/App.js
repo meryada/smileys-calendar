@@ -47,6 +47,8 @@ class App extends React.Component {
 
   getDate(event) {
     const newDate = event.currentTarget.value;
+    // const startDate = new moment(this.state.startDate);
+    // console.log(startDate)
     this.setState(prevState => {
       return {
         currentStatus: { ...prevState.currentStatus, currentDay: newDate }

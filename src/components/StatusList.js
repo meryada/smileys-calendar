@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Counter } from './Counter';
+import { Link } from 'react-router-dom';
 
 const StatusList = props => {
   const { allStatus } = props;
@@ -7,6 +8,9 @@ const StatusList = props => {
     return (
       <div>
         <h2>Calendario</h2>
+        <Counter 
+        allStatus={allStatus}
+        />
         <ul>
           {allStatus.map((status, index) => {
             return (
