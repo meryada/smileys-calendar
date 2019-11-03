@@ -1,6 +1,12 @@
+@import 'mixins';
+
 *{
     list-style: none;
 } 
+
+.statuslist__container {
+    @include general_container;
+}
 
 .statuslist__list {
     display: flex;
@@ -16,9 +22,4 @@
     .fa-grin-hearts {
         color: green;
     }
-}
-
-.statuslist__container {
-    margin: 0 20px;
-    background-color: fuchsia;
 }

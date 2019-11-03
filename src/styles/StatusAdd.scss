@@ -1,10 +1,9 @@
 @import 'mixins';
 
-.add__btn {
-    @include btn;
+.add__container {
+    @include general_container;
 }
 
-.add__container {
-    margin: 0 20px;
-    background-color: pink;
+.add__btn {
+    @include btn;
 }
