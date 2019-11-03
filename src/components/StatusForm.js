@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const StatusForm = props => {
   const { getDate, getStatus, handleSubmit, getMessage } = props
   return (
-    <div>
+    <div className='form__container'>
       <h2>Formulario nuevo Estado</h2>
       <fieldset>Formulario
           <form>

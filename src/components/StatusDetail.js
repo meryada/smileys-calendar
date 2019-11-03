@@ -7,7 +7,7 @@ const StatusDetail = props => {
   const state = allStatus.filter(item => item.newId == id);
   if(state[0]) {
     return (
-      <div>
+      <div className='detail__container'>
         <p>ID/#{id}</p>
       <h2>{state[0].currentDay}</h2>
       <p>{state[0].currentStatus === 'triste'?<i className="fas fa-sad-tear"></i>:<i className="fas fa-grin-hearts"></i>}</p>

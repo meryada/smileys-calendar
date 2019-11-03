@@ -8,10 +8,12 @@ const Home = props => {
   const { allStatus } = props;
   return (
     <React.Fragment>
-      <div className='app__header'>
-      <img className='app__header-image' src={logo} alt='smiley calendar'></img>
-      <h1 className='app_header-title'>Smileys Calendar</h1>
-      </div>
+      <header className='app__header'>
+        <div className='app__container'>
+          <img className='app__header-image' src={logo} alt='smiley calendar'></img>
+          <h1 className='app_header-title'>Smileys Calendar</h1>
+        </div>
+      </header>
       <StatusAdd />
       <StatusList
         allStatus={allStatus}
