@@ -18,7 +18,7 @@ const StatusForm = props => {
             </div>
         <div className='input__container'>
           <label className='input__label' >Mensaje</label>
-          <input className='input__input' type='text' id='message' onKeyUp={getMessage} disabled = {(disabled)? "disabled" : ""}  />
+          <input className='input__input' type='text' id='message' onKeyUp={getMessage} disabled = {disabled === true? true: false}  />
         </div>
         {/* <Button
         handleSubmit={handleSubmit}
