@@ -1,0 +1,21 @@
+@import 'mixins';
+
+.app__container {
+    @include general_container;
+}
+
+.app__header {
+    padding-top: 10px;
+    
+
+    .app__header-image {
+        width: 100px;
+    
+    }
+    
+    .app_header-title {
+        height: 1px;
+        overflow: hidden;
+    }
+}
+
