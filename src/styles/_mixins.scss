@@ -1,4 +1,19 @@
-@mixin btn {
+//columna central responsive
+@mixin general_container {
+  margin: 0 20px;
+  min-width: 300px;
+  max-width: 924px;
+  
+  @media all and (min-width: 768px) {
+    margin: 0 40px;
+  }
+  @media all and (min-width:1016px) {
+    margin: 0 auto;
+  }
+}
+
+//botones
+@mixin btn__add {
     background-color: green;
   
     &:hover {
@@ -7,22 +22,23 @@
     }
   
     &:active {
-      background-color: darken(blue, 10%);
+      background-color: darken(green, 10%);
       opacity: 1;
     }
 }
 
-@mixin general_container {
-    margin: 0 20px;
-    min-width: 300px;
-    max-width: 924px;
-    @media all and (min-width: 768px) {
-      margin: 0 40px;
-    }
-    @media all and (min-width:1016px) {
-      margin: 0 auto;
-    }
+
+//text-format
+@mixin link ($color) {
+  color: $color;
+  text-decoration: none;
+
+  &:visited {
+    color: $color;
+  }
 }
+
+
 
 
 

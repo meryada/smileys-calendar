@@ -1,25 +1,30 @@
 @import 'mixins';
 
-*{
+* { 
     list-style: none;
 } 
 
 .statuslist__container {
     @include general_container;
+    background: white;
+    box-shadow: 0px 0px 15px 0px grey;
+    border-radius: 5px;
+    
 }
 
 .statuslist__list {
     display: flex;
+    
     
     .statuslist__list-item {
         padding: 20px;
     }
 
     .fa-sad-tear {
-        color: red;
+        color: rgb(247, 80, 80);
     }
 
     .fa-grin-hearts {
-        color: green;
+        color: rgb(117, 219, 159);
     }
 }

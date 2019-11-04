@@ -5,10 +5,17 @@
 }
 
 .app__header {
-    background-color: lightgoldenrodyellow;
+    padding-top: 20px;
+    
+
+    .app__header-image {
+        width: 100px;
+    
+    }
+    
+    .app_header-title {
+        height: 1px;
+        overflow: hidden;
+    }
 }
 
-.app_header-title {
-    height: 1px;
-    overflow: hidden;
-}
