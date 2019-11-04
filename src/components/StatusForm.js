@@ -1,32 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import Button from './Button';
+import '../styles/StatusForm.scss';
 
 const StatusForm = props => {
   const { getDate, getStatus, handleSubmit, getMessage } = props
   return (
     <div className='form__container'>
-      <h2>Formulario nuevo Estado</h2>
-      <fieldset>Formulario
-          <form>
-          <label>Fecha </label>
-          <input type='date' id='date' name='date' onChange={getDate} />
-          <label>Estado</label>
-          <input type='radio' id='feliz' onChange={getStatus} name='status' value='feliz' /> : )
-          <input type='radio' id='triste' onChange={getStatus} name='status' value='triste' />  : (
-          <label>Mensaje</label>
-          <input type='text' id='message' onKeyUp={getMessage} />
+      <form className='form__form'>
+        <div className='input__container'>
+          <label className='input__label' >Fecha </label>
+          <input className='input__input' type='date' id='date' name='date' onChange={getDate} />
+        </div>
+        <div className='input__container'>
+          <label className='input__label'  >Estado</label>
+          <input className='input input__radio' type='radio' id='feliz' onChange={getStatus} name='status' value='feliz' /> : )
+          <input className='input input__radio' type='radio' id='triste' onChange={getStatus} name='status' value='triste' />  : (
+            </div>
+        <div className='input__container'>
+          <label className='input__label' >Mensaje</label>
+          <input className='input__input' type='text' id='message' onKeyUp={getMessage} />
+        </div>
         {/* <Button
         handleSubmit={handleSubmit}
         /> */}
         <Link to="/">
-          <button type="button" value='Añadir' onClick={handleSubmit}>Añadir</button>
+          <div className='input__container'>
+            <button className='input__submit' type="button" value='Añadir' onClick={handleSubmit}>Añadir</button>
+          </div>
         </Link>
         <Link to="/">
-          <button type='button' value='Cancelar'>Cancelar</button>
+          <div className='input__container'>
+            <button className='input__cancel' type='button' value='Cancelar'>Cancelar</button>
+          </div>
         </Link>
-        </form>
-      </fieldset>
+      </form>
     </div >
   )
 };
