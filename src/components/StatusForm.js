@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/StatusForm.scss';
 
 const StatusForm = props => {
-  const { getDate, getStatus, handleSubmit, getMessage } = props
+  const { getDate, getStatus, handleSubmit, getMessage, disabled, handleDisabled, handleAble } = props
   return (
     <div className='form__container'>
       <form className='form__form'>
@@ -13,12 +13,12 @@ const StatusForm = props => {
         </div>
         <div className='input__container'>
           <label className='input__label'  >Estado</label>
-          <input className='input input__radio' type='radio' id='feliz' onChange={getStatus} name='status' value='feliz' /> : )
-          <input className='input input__radio' type='radio' id='triste' onChange={getStatus} name='status' value='triste' />  : (
+          <input className='input input__radio' type='radio' id='feliz' onChange={getStatus} onClick={handleAble} name='status' value='feliz' /> : )
+          <input className='input input__radio' type='radio' id='triste' onChange={getStatus} onClick={handleDisabled} name='status' value='triste' />  : (
             </div>
         <div className='input__container'>
           <label className='input__label' >Mensaje</label>
-          <input className='input__input' type='text' id='message' onKeyUp={getMessage} />
+          <input className='input__input' type='text' id='message' onKeyUp={getMessage} disabled = {(disabled)? "disabled" : ""}  />
         </div>
         {/* <Button
         handleSubmit={handleSubmit}

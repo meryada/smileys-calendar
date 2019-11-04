@@ -14,7 +14,8 @@ class App extends React.Component {
         currentDay: '',
         currentStatus: '',
         currentMessage: ''
-      }
+      },
+      disabled: false
     }
     this.getDate = this.getDate.bind(this)
     this.getStatus = this.getStatus.bind(this)
@@ -22,6 +23,8 @@ class App extends React.Component {
     this.setLocal = this.setLocal.bind(this)
     this.getMessage = this.getMessage.bind(this)
     this.handleGetLocalStorage = this.handleGetLocalStorage.bind(this)
+    this.handleDisabled = this.handleDisabled.bind(this)
+    this.handleAble = this.handleAble.bind(this)
 
   }
 
@@ -90,6 +93,14 @@ class App extends React.Component {
     )
   }
 
+  handleDisabled() {
+      this.setState( {disabled: true} )
+  }
+
+  handleAble() {
+    this.setState( {disabled: false} )
+}
+
   render() {
     return (
       <div className="app">
@@ -111,6 +122,9 @@ class App extends React.Component {
                 getStatus={this.getStatus}
                 getMessage={this.getMessage}
                 handleSubmit={this.handleSubmit}
+                handleDisabled={this.handleDisabled}
+                disabled={this.state.disabled}
+                handleAble={this.handleAble}
               />
             )
           }} />
