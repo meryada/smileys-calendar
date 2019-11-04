@@ -5,13 +5,43 @@
     background: white;
     box-shadow: 0px 0px 15px 0px grey;
     border-radius: 5px;
-}
-
 
     .fa-sad-tear {
         color: rgb(247, 80, 80);
+        margin: 20px 0;
     }
-
+    
     .fa-grin-hearts {
         color: rgb(241, 207, 12);
+        margin: 20px 0;
     }
+
+    .detail__id {
+        width: 300px;
+        padding: 10px 0;
+        background-color: lightgray;
+        color: white;
+        border-radius: 5px;
+
+    }
+
+    .detail__date {
+        padding: 10px;
+    }
+
+    .input__back {
+        box-shadow: 0px 0px 15px 0px grey;
+        border-radius: 5px;
+        background-color: white;
+        color: grey;
+        font-size: 14px;
+        padding: 10px;
+        width: 200px;
+        margin: 20px;
+    
+        &:hover {
+            background-color:rgb(111, 24, 224);
+            color: white;
+        }
+    }
+}

@@ -27,7 +27,6 @@ const StatusList = props => {
   } else {
     return (
       <div>
-        <h2>Calendario</h2>
         <div>
         <i className="fas fa-exclamation-circle fa-3x"></i>
         <p>no hay estados, añade uno!</p>

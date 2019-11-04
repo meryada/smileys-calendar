@@ -9,12 +9,12 @@ const StatusDetail = props => {
   if (state[0]) {
     return (
       <div className='detail__container'>
-        <p>ID/#{id}</p>
-        <h2>{state[0].currentDay}</h2>
-        <p>{state[0].currentStatus === 'triste' ? <i className="fas fa-sad-tear"></i> : <i className="fas fa-grin-hearts"></i>}</p>
-        <p>{state[0].currentMessage}</p>
+        <p className='detail__id'>ID/#{id}</p>
+        <h2 className='detail__date'>{state[0].currentDay}</h2>
+        <p className='detail__status'>{state[0].currentStatus === 'triste' ? <i className="fas fa-sad-tear fa-4x"></i> : <i className="fas fa-grin-hearts fa-4x"></i>}</p>
+        <p className='detail__message'>{state[0].currentMessage}</p>
         <Link to="/">
-          <button type='button' value='Cancelar'>Volver al listado</button>
+          <button className='input__back' type='button' value='Cancelar'>Volver al listado</button>
         </Link>
       </div>
     )
@@ -23,7 +23,7 @@ const StatusDetail = props => {
       <div>
         <p>este stado no exite</p>
         <Link to="/">
-          <button type='button' value='Cancelar'>Volver al listado</button>
+          <button className='input__back' type='button' value='Cancelar'>Volver al listado</button>
         </Link>
       </div>
     )
