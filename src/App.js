@@ -59,7 +59,6 @@ class App extends React.Component {
         currentStatus: { ...prevState.currentStatus, currentDay: newDate }
       }
     })
-    this.iSubmitButtonDisabled();
   }
 
   getStatus(event) {
