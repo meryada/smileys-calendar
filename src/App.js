@@ -15,7 +15,8 @@ class App extends React.Component {
         currentStatus: '',
         currentMessage: ''
       },
-      disabled: false
+      disabled: false,
+      isSubmitButtonDisabled: false,
     }
     this.getDate = this.getDate.bind(this)
     this.getStatus = this.getStatus.bind(this)
@@ -25,6 +26,7 @@ class App extends React.Component {
     this.handleGetLocalStorage = this.handleGetLocalStorage.bind(this)
     this.handleDisabled = this.handleDisabled.bind(this)
     this.handleAble = this.handleAble.bind(this)
+    // this.iSubmitButtonDisabled = this.iSubmitButtonDisabled.bind(this)
 
   }
 
@@ -37,16 +39,16 @@ class App extends React.Component {
   handleGetLocalStorage = () => {
     const savedStatus = JSON.parse(localStorage.getItem('allStatus'));
     this.setState(() => {
-      if(savedStatus === null){
-        return (console.log ('no tengo info guardada'))
-    } else {
-      return ({
-        allStatus: savedStatus
-      })
-    }
-  })
-}
-  
+      if (savedStatus === null) {
+        return (console.log('no tengo info guardada'))
+      } else {
+        return ({
+          allStatus: savedStatus
+        })
+      }
+    })
+  }
+
 
   getDate(event) {
     const newDate = event.currentTarget.value;
@@ -57,6 +59,7 @@ class App extends React.Component {
         currentStatus: { ...prevState.currentStatus, currentDay: newDate }
       }
     })
+    this.iSubmitButtonDisabled();
   }
 
   getStatus(event) {
@@ -94,12 +97,20 @@ class App extends React.Component {
   }
 
   handleDisabled() {
-      this.setState( {disabled: true} )
+    this.setState({
+      disabled: true,
+    })
+
   }
 
   handleAble() {
-    this.setState( {disabled: false} )
-}
+    this.setState({ disabled: false })
+  }
+
+  // iSubmitButtonDisabled() {
+  //   this.setState({ isSubmitButtonDisabled: true })
+  // }
+
 
   render() {
     return (
@@ -125,6 +136,7 @@ class App extends React.Component {
                 handleDisabled={this.handleDisabled}
                 disabled={this.state.disabled}
                 handleAble={this.handleAble}
+                iSubmitButtonDisabled={this.iSubmitButtonDisabled}
               />
             )
           }} />
